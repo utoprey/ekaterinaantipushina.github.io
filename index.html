@@ -514,62 +514,19 @@
         /* PDF viewer styles */
         .pdf-container {
             width: 100%;
-            height: 90vh;
+            height: 85vh;
             border-radius: 20px;
-            overflow: auto;
             box-shadow: var(--shadow-large);
             border: 1px solid var(--border-light);
             background: var(--soft-white);
-            position: relative;
+            overflow: hidden;
         }
 
-        .pdf-viewer {
+        .pdf-object {
             width: 100%;
             height: 100%;
             border: none;
             border-radius: 20px;
-        }
-
-        .pdf-controls {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-
-        .pdf-control-btn {
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .pdf-control-btn:hover {
-            background: var(--coral);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        /* Responsive PDF scaling */
-        @media (min-width: 1200px) {
-            .pdf-container {
-                height: 95vh;
-            }
-        }
-        
-        @media (min-width: 1600px) {
-            .pdf-container {
-                height: 95vh;
-            }
         }
 
         .pdf-fallback {
@@ -581,6 +538,7 @@
             text-align: center;
             color: var(--text-gray);
             background: var(--warm-gray);
+            padding: 2rem;
         }
 
         .pdf-fallback h3 {
@@ -1010,31 +968,6 @@
             color: var(--coral);
         }
 
-        /* News items */
-        .news-item {
-            background: var(--soft-white);
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-light);
-            border-left: 4px solid var(--mint-dark);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .news-item:hover {
-            transform: translateX(6px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .news-date {
-            font-family: 'Caveat', cursive;
-            color: var(--coral);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .nav-container {
@@ -1311,19 +1244,18 @@
                     <p class="handwritten">comprehensive academic background...</p>
                     
                     <div class="pdf-container">
-                        <iframe 
-                            src="experience/EkaterinaAntipushinaCV.pdf" 
-                            class="pdf-viewer"
-                            title="Ekaterina Antipushina CV"
-                            type="application/pdf">
-                        </iframe>
-                        <div class="pdf-fallback" style="display: none;">
-                            <h3>CV Document</h3>
-                            <p>Unable to display PDF. Please download to view.</p>
-                            <a href="experience/EkaterinaAntipushinaCV.pdf" class="download-btn" download>
-                                Download CV (PDF)
-                            </a>
-                        </div>
+                        <object 
+                            data="experience/EkaterinaAntipushinaCV.pdf" 
+                            type="application/pdf"
+                            class="pdf-object">
+                            <div class="pdf-fallback">
+                                <h3>CV Document</h3>
+                                <p>Your browser doesn't support PDF viewing.</p>
+                                <a href="experience/EkaterinaAntipushinaCV.pdf" class="download-btn" target="_blank">
+                                    Open CV in New Tab
+                                </a>
+                            </div>
+                        </object>
                     </div>
                 </div>
 
@@ -1333,18 +1265,18 @@
                     <p class="handwritten">industry-focused summary...</p>
                     
                     <div class="pdf-container">
-                        <iframe 
-                            src="/documents/Ekaterina_Antipushina_Resume.pdf" 
-                            class="pdf-viewer"
-                            title="Ekaterina Antipushina Resume">
-                        </iframe>
-                        <div class="pdf-fallback" style="display: none;">
-                            <h3>Resume Document</h3>
-                            <p>Unable to display PDF. Please download to view.</p>
-                            <a href="/documents/Ekaterina_Antipushina_Resume.pdf" class="download-btn" download>
-                                Download Resume (PDF)
-                            </a>
-                        </div>
+                        <object 
+                            data="/documents/Ekaterina_Antipushina_Resume.pdf" 
+                            type="application/pdf"
+                            class="pdf-object">
+                            <div class="pdf-fallback">
+                                <h3>Resume Document</h3>
+                                <p>Your browser doesn't support PDF viewing.</p>
+                                <a href="/documents/Ekaterina_Antipushina_Resume.pdf" class="download-btn" target="_blank">
+                                    Open Resume in New Tab
+                                </a>
+                            </div>
+                        </object>
                     </div>
                 </div>
             </div>
@@ -1689,7 +1621,7 @@
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+                this.style.transform = 'translateY(0) scale(1.0)';
             });
         });
     </script>
