@@ -466,6 +466,174 @@
             font-size: 0.9rem;
         }
 
+        /* Research page styles */
+        .research-nav {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .research-nav-pills {
+            display: flex;
+            background: var(--soft-white);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            gap: 0.25rem;
+        }
+
+        .research-nav-btn {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: var(--text-gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+
+        .research-nav-btn.active,
+        .research-nav-btn:hover {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--blush) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .research-section {
+            display: none;
+        }
+
+        .research-section.active {
+            display: block;
+        }
+
+        /* Project header with logo */
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-logo {
+            flex-shrink: 0;
+        }
+
+        .github-link {
+            margin-left: auto;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: var(--soft-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .github-link:hover {
+            color: var(--coral);
+            transform: scale(1.1);
+        }
+
+        /* Paper links */
+        .paper-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .paper-link:hover {
+            color: var(--coral);
+        }
+
+        /* Posters grid */
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .poster-card {
+            background: var(--soft-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .poster-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .poster-content {
+            padding: 1.5rem;
+        }
+
+        .poster-link {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .poster-link:hover {
+            color: var(--text-dark);
+        }
+
+        /* Talks grid */
+        .talks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .talk-card {
+            background: var(--soft-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .talk-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .talk-content {
+            padding: 1.5rem;
+        }
+
+        .talk-venue {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .talk-description {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .talk-link {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .talk-link:hover {
+            color: var(--text-dark);
+        }
+
         /* Timeline with organic feel */
         .timeline {
             position: relative;
@@ -511,6 +679,31 @@
             box-shadow: var(--shadow-medium);
         }
 
+        .exp-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-company {
+            color: var(--coral);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-duration {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .exp-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
         /* Handwritten annotations */
         .handwritten {
             font-family: 'Caveat', cursive;
@@ -542,12 +735,6 @@
             box-shadow: var(--shadow-large);
         }
 
-        .project-header {
-            background: linear-gradient(135deg, var(--sage-green) 0%, var(--mint) 100%);
-            padding: 2rem;
-            position: relative;
-        }
-
         .project-title {
             font-size: 1.3rem;
             font-weight: 600;
@@ -563,6 +750,12 @@
 
         .project-content {
             padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         .tech-stack {
@@ -605,6 +798,25 @@
         .publication-item:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
+        }
+
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-venue {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 1rem;
         }
 
         .pub-note {
@@ -788,8 +1000,7 @@
                 <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
                 <li><a href="#" onclick="showPage('about-me')" class="nav-link">About</a></li>
                 <li><a href="#" onclick="showPage('resume')" class="nav-link">Experience</a></li>
-                <li><a href="#" onclick="showPage('projects')" class="nav-link">Projects</a></li>
-                <li><a href="#" onclick="showPage('papers')" class="nav-link">Publications</a></li>
+                <li><a href="#" onclick="showPage('research')" class="nav-link">Research</a></li>
                 <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
             </ul>
             <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -874,6 +1085,8 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
 
         <!-- Experience Page -->
         <div id="resume" class="page">
@@ -934,130 +1147,215 @@
             </div>
         </div>
 
-        <!-- Projects Page -->
-        <div id="projects" class="page">
+        <!-- Research Page -->
+        <div id="research" class="page">
             <div class="section">
-                <h1 class="section-title">Projects I'm Proud Of</h1>
+                <h1 class="section-title">Research Hub</h1>
+                <p class="handwritten">explore my research journey...</p>
                 
-                <p class="handwritten">some things I've been working on...</p>
-                
-                <div class="projects-grid">
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <div class="project-title">EEG Foundation Models</div>
-                            <div class="project-period">2024 - 2025</div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-description">
-                                Creating quantization techniques that turn brain signals into meaningful digital tokens. It's like teaching computers to understand the language of neurons in a way that preserves all the important information.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">Transformers</span>
-                                <span class="tech-tag">Vector Quantization</span>
-                                <span class="tech-tag">Self-supervised Learning</span>
-                            </div>
-                            <p class="handwritten">decoding minds! 🧠💫</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <div class="project-title">pyOpenNFT</div>
-                            <div class="project-period">2024</div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-description">
-                                Reimagined real-time fMRI neurofeedback with a fully Python architecture. No more clunky MATLAB dependencies! Built user-friendly APIs that make neurofeedback accessible to researchers everywhere.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">FastAPI</span>
-                                <span class="tech-tag">NumPy</span>
-                                <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">Lab Streaming Layer</span>
-                            </div>
-                            <p class="handwritten">real-time brain magic! ⚡</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <div class="project-title">Rest2Task</div>
-                            <div class="project-period">2023</div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-description">
-                                Developed a generative framework that creates task-based fMRI data from resting scans. Achieved impressive results (MSE of 0.05 ± 0.01) while maintaining the biological authenticity of brain patterns.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">VAE</span>
-                                <span class="tech-tag">Conditional GAN</span>
-                                <span class="tech-tag">Neural Optimal Transport</span>
-                                <span class="tech-tag">Docker</span>
-                            </div>
-                            <p class="handwritten">dreaming up brain states! 🌙</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <div class="project-title">Geometric ML for Mental Health</div>
-                            <div class="project-period">2023</div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-description">
-                                Used geometric features and topological data analysis to predict schizophrenia. It's like finding hidden patterns in the brain's geometry that can help with early diagnosis and better understanding.
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Topological Data Analysis</span>
-                                <span class="tech-tag">Persistent Homology</span>
-                                <span class="tech-tag">Manifold Learning</span>
-                                <span class="tech-tag">Graph Theory</span>
-                            </div>
-                            <p class="handwritten">finding hope in data 💜</p>
-                        </div>
+                <div class="research-nav">
+                    <div class="research-nav-pills">
+                        <button class="research-nav-btn active" onclick="showResearchSection('projects')">Projects</button>
+                        <button class="research-nav-btn" onclick="showResearchSection('papers')">Papers</button>
+                        <button class="research-nav-btn" onclick="showResearchSection('posters')">Posters</button>
+                        <button class="research-nav-btn" onclick="showResearchSection('talks')">Research Talks</button>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Publications Page -->
-        <div id="papers" class="page">
-            <div class="section">
-                <h1 class="section-title">Research & Publications</h1>
-                
-                <p class="handwritten">sharing discoveries with the world...</p>
-                
-                <div class="publication-item fade-in">
-                    <div class="pub-title">pyOpenNFT: an open-source Python framework for ML-based real-time fMRI and EEG-fMRI neurofeedback</div>
-                    <div class="pub-authors">Antipushina E., et al.</div>
-                    <div class="pub-venue">International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
-                    <div class="pub-note">A* Conference ✨</div>
+                <!-- Projects Section -->
+                <div id="research-projects" class="research-section active">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card fade-in">
+                            <div class="project-header">
+                                <div class="project-logo">
+                                    <svg viewBox="0 0 100 100" width="50" height="50">
+                                        <circle cx="50" cy="50" r="45" fill="var(--coral)" opacity="0.8"/>
+                                        <path d="M30 50 Q50 20 70 50 Q50 80 30 50" fill="white"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="project-title">EEG Foundation Models</div>
+                                    <div class="project-period">2024 - 2025</div>
+                                </div>
+                                <a href="https://github.com/utoprey/eeg-foundation" class="github-link" target="_blank">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    Creating quantization techniques that turn brain signals into meaningful digital tokens.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">Transformers</span>
+                                    <span class="tech-tag">Vector Quantization</span>
+                                </div>
+                                <p class="handwritten">decoding minds! 🧠💫</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card fade-in">
+                            <div class="project-header">
+                                <div class="project-logo">
+                                    <svg viewBox="0 0 100 100" width="50" height="50">
+                                        <rect x="10" y="10" width="80" height="80" rx="15" fill="var(--mint-dark)"/>
+                                        <circle cx="50" cy="50" r="20" fill="white"/>
+                                        <text x="50" y="55" text-anchor="middle" fill="var(--mint-dark)" font-size="14" font-weight="bold">NFT</text>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="project-title">pyOpenNFT</div>
+                                    <div class="project-period">2024</div>
+                                </div>
+                                <a href="https://github.com/utoprey/pyopennft" class="github-link" target="_blank">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    Python-based real-time fMRI neurofeedback with user-friendly APIs.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">NumPy</span>
+                                </div>
+                                <p class="handwritten">real-time brain magic! ⚡</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card fade-in">
+                            <div class="project-header">
+                                <div class="project-logo">
+                                    <svg viewBox="0 0 100 100" width="50" height="50">
+                                        <circle cx="50" cy="50" r="45" fill="var(--lavender-dark)" opacity="0.8"/>
+                                        <path d="M25 25 L75 75 M75 25 L25 75" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="project-title">Rest2Task</div>
+                                    <div class="project-period">2023</div>
+                                </div>
+                                <a href="https://github.com/utoprey/rest2task" class="github-link" target="_blank">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    Generative framework creating task-based fMRI data from resting scans.
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">VAE</span>
+                                    <span class="tech-tag">GAN</span>
+                                    <span class="tech-tag">Optimal Transport</span>
+                                </div>
+                                <p class="handwritten">dreaming up brain states! 🌙</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="publication-item fade-in">
-                    <div class="pub-title">CSTNet: A Generative Framework for EEG-to-ECoG Translation via Optimal Transport</div>
-                    <div class="pub-authors">Antipushina E., et al.</div>
-                    <div class="pub-venue">International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
-                    <div class="pub-note">A* Conference ✨</div>
+                <!-- Papers Section -->
+                <div id="research-papers" class="research-section">
+                    <h2 class="section-title">Publications</h2>
+                    <div class="publication-item fade-in">
+                        <div class="pub-title">
+                            <a href="https://doi.org/10.1007/978-3-031-72384-1_15" target="_blank" class="paper-link">
+                                pyOpenNFT: an open-source Python framework for ML-based real-time fMRI and EEG-fMRI neurofeedback
+                            </a>
+                        </div>
+                        <div class="pub-authors">Antipushina E., et al.</div>
+                        <div class="pub-venue">MICCAI 2025</div>
+                        <div class="pub-note">A* Conference</div>
+                    </div>
+
+                    <div class="publication-item fade-in">
+                        <div class="pub-title">
+                            <a href="#" target="_blank" class="paper-link">
+                                CSTNet: A Generative Framework for EEG-to-ECoG Translation via Optimal Transport
+                            </a>
+                        </div>
+                        <div class="pub-authors">Antipushina E., et al.</div>
+                        <div class="pub-venue">MICCAI 2025</div>
+                        <div class="pub-note">A* Conference</div>
+                    </div>
+
+                    <div class="publication-item fade-in">
+                        <div class="pub-title">
+                            <a href="https://www.bio-conferences.org/articles/bioconf/abs/2024/01/bioconf_bec2024_01007/bioconf_bec2024_01007.html" target="_blank" class="paper-link">
+                                Interpretable AI models for predicting distant metastasis development based on genetic data: kidney cancer example
+                            </a>
+                        </div>
+                        <div class="pub-authors">Maria Boyko, Ekaterina Antipushina, et al.</div>
+                        <div class="pub-venue">BIO Web of Conferences, 2024</div>
+                        <div class="pub-note">Medical AI Application</div>
+                    </div>
                 </div>
 
-                <div class="publication-item fade-in">
-                    <div class="pub-title">Interpretable AI models for predicting distant metastasis development based on genetic data: kidney cancer example</div>
-                    <div class="pub-authors">Maria Boyko, Ekaterina Antipushina, et al.</div>
-                    <div class="pub-venue">BIO Web of Conferences, 2024</div>
-                    <div class="pub-note">Medical AI Application 💊</div>
+                <!-- Posters Section -->
+                <div id="research-posters" class="research-section">
+                    <h2 class="section-title">Posters & Presentations</h2>
+                    <div class="posters-grid">
+                        <div class="poster-card fade-in">
+                            <div class="poster-image">
+                                <img src="/img/poster1.jpg" alt="EEG Foundation Models Poster" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px;">
+                            </div>
+                            <div class="poster-content">
+                                <h3>EEG Foundation Models</h3>
+                                <p>MICCAI 2025 Poster Session</p>
+                                <a href="/posters/eeg-foundation-models.pdf" target="_blank" class="poster-link">View PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="poster-card fade-in">
+                            <div class="poster-image">
+                                <img src="/img/poster2.jpg" alt="pyOpenNFT Poster" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px;">
+                            </div>
+                            <div class="poster-content">
+                                <h3>pyOpenNFT Framework</h3>
+                                <p>Neuroscience Conference 2024</p>
+                                <a href="/posters/pyopennft.pdf" target="_blank" class="poster-link">View PDF</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="publication-item fade-in">
-                    <div class="pub-title">Artificial Sensations Evoked by Transcutaneous Electrical Nerve Stimulation: Investigating the Parameters Space</div>
-                    <div class="pub-authors">Piliugin N., Knyshenko M., Sain A., Antipushina E.</div>
-                    <div class="pub-venue">IEEE Ural-Siberian Conference on Computational Technologies in Cognitive Science, Genomics and Biomedicine (CSGB), 2023</div>
-                    <div class="pub-note">IEEE Conference ⚡</div>
-                </div>
+                <!-- Research Talks Section -->
+                <div id="research-talks" class="research-section">
+                    <h2 class="section-title">Research Talks</h2>
+                    <div class="talks-grid">
+                        <div class="talk-card fade-in">
+                            <div class="talk-image">
+                                <img src="/img/talk1.jpg" alt="AI in Neuroimaging Talk" style="width: 100%; height: 150px; object-fit: cover; border-radius: 15px;">
+                            </div>
+                            <div class="talk-content">
+                                <h3>AI Applications in Neuroimaging</h3>
+                                <p class="talk-venue">Skoltech AI Seminar, September 2024</p>
+                                <p class="talk-description">Exploring how generative AI transforms brain imaging analysis</p>
+                                <a href="https://youtu.be/example" target="_blank" class="talk-link">Watch Recording</a>
+                            </div>
+                        </div>
 
-                <p class="handwritten">more exciting papers coming soon! 📝</p>
+                        <div class="talk-card fade-in">
+                            <div class="talk-image">
+                                <img src="/img/talk2.jpg" alt="Foundation Models Talk" style="width: 100%; height: 150px; object-fit: cover; border-radius: 15px;">
+                            </div>
+                            <div class="talk-content">
+                                <h3>Foundation Models for EEG Analysis</h3>
+                                <p class="talk-venue">IEEE CSGB Conference, August 2024</p>
+                                <p class="talk-description">Neural quantization techniques for brain signal processing</p>
+                                <a href="/slides/foundation-models-eeg.pdf" target="_blank" class="talk-link">View Slides</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1110,6 +1408,19 @@
     </main>
 
     <script>
+        // Research section navigation
+        function showResearchSection(sectionId) {
+            const sections = document.querySelectorAll('.research-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            document.getElementById(`research-${sectionId}`).classList.add('active');
+            
+            const navBtns = document.querySelectorAll('.research-nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            
+            event.target.classList.add('active');
+        }
+
         // Navigation functionality
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
