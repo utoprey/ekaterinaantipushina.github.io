@@ -1098,33 +1098,50 @@
                 <div class="timeline">
                     <div class="timeline-item fade-in">
                         <div class="exp-title">PhD in Computational and Data Science</div>
-                        <div class="exp-company">Skoltech, Applied AI & Neurocenter </div>
+                        <div class="exp-company">Skoltech, Applied AI Center</div>
                         <div class="exp-duration">2024 - present</div>
                         <div class="exp-description">
-                            Diving deep into MLOps, foundation models, and quantization. Working on multimodal data analysis for realible prediction of localized neuronal activity in real-time.
+                            Diving deep into medical AI applications, foundation models, and neural quantization. Working on making AI more accessible and human-centered, particularly in healthcare contexts.
                         </div>
                         <p class="handwritten">currently living here! 📚</p>
                     </div>
 
                     <div class="timeline-item fade-in">
                         <div class="exp-title">ML Research Engineer</div>
-                        <div class="exp-company">BIMAI-lab, Skoltech</div>
+                        <div class="exp-company">Applied AI Center, Skoltech</div>
                         <div class="exp-duration">June 2024 - June 2025</div>
                         <div class="exp-description">
-                            - Formulated and statistically tested hypotheses based on experimental conditions and biological processes
-                            - Conducted EDA, feature selection, and clustering to identify trends, reduce dimensionality, and segment data by cell behavior and treatment responses
-                            - Built and validated machine learning models using cross-validation within integrated statistical-ML pipelines
+                            Leading research in EEG foundation models and neural quantization. Developing innovative approaches for converting continuous neurological data into meaningful discrete representations.
                         </div>
                     </div>
 
                     <div class="timeline-item fade-in">
-                        <div class="exp-title">Master's in medical AI </div>
+                        <div class="exp-title">Master's in Data Science</div>
                         <div class="exp-company">Skoltech, Biomedically-Informed AI Lab</div>
                         <div class="exp-duration">2022 - 2024</div>
                         <div class="exp-description">
-                            Thesis: "Interpretable machine learning models for multimodal neuroimaging and biomedical data using data fusion methods in schizophrenia diagnosis." Developed data fusion techniques for schizophrenia diagnostic marker discovery, achieving F1 score of 0.87 (13% improvement over previous SOTA of 0.77).
+                            Thesis: "Interpretable machine learning models for multimodal neuroimaging and biomedical data using data fusion methods in schizophrenia diagnosis." Focused on making complex medical data understandable.
                         </div>
-                
+                        <p class="handwritten">where the magic started! ✨</p>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">Researcher</div>
+                        <div class="exp-company">Neuroimaging and Cognitive Neuroscience Lab</div>
+                        <div class="exp-duration">June - December 2024</div>
+                        <div class="exp-description">
+                            Designed Python-based architecture for real-time fMRI neurofeedback training. Built user-friendly FastAPI servers that make complex neuroscience accessible.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">Bachelor's in Biomedical Engineering</div>
+                        <div class="exp-company">Moscow Aviation Institute</div>
+                        <div class="exp-duration">2018 - 2022</div>
+                        <div class="exp-description">
+                            Built a strong foundation in engineering principles applied to healthcare technology. This is where I first fell in love with the intersection of technology and human wellbeing.
+                        </div>
+                        <p class="handwritten">the beginning! 🚀</p>
                     </div>
                 </div>
             </div>
@@ -1391,6 +1408,19 @@
     </main>
 
     <script>
+        // Experience section navigation
+        function showExperienceSection(sectionId) {
+            const sections = document.querySelectorAll('.experience-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            document.getElementById(`experience-${sectionId}`).classList.add('active');
+            
+            const navBtns = document.querySelectorAll('.experience-nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            
+            event.target.classList.add('active');
+        }
+
         // Research section navigation
         function showResearchSection(sectionId) {
             const sections = document.querySelectorAll('.research-section');
