@@ -516,7 +516,7 @@
             width: 100%;
             height: 90vh;
             border-radius: 20px;
-            overflow: hidden;
+            overflow: auto;
             box-shadow: var(--shadow-large);
             border: 1px solid var(--border-light);
             background: var(--soft-white);
@@ -528,8 +528,9 @@
             height: 100%;
             border: none;
             border-radius: 20px;
-            transform: scale(1.1);
+            transform: scale(2.0);
             transform-origin: top left;
+            min-height: 200vh;
         }
 
         .pdf-controls {
@@ -567,7 +568,8 @@
                 height: 95vh;
             }
             .pdf-viewer {
-                transform: scale(1.2);
+                transform: scale(2.2);
+                min-height: 220vh;
             }
         }
 
@@ -576,7 +578,8 @@
                 height: 95vh;
             }
             .pdf-viewer {
-                transform: scale(1.3);
+                transform: scale(2.5);
+                min-height: 250vh;
             }
         }
 
@@ -1320,14 +1323,14 @@
                     
                     <div class="pdf-container">
                         <iframe 
-                            src="/experience/Ekaterina-Antipushina-FlowCV-Resume-20250907.pdf" 
+                            src="/documents/Ekaterina_Antipushina_CV.pdf" 
                             class="pdf-viewer"
                             title="Ekaterina Antipushina CV">
                         </iframe>
                         <div class="pdf-fallback" style="display: none;">
                             <h3>CV Document</h3>
                             <p>Unable to display PDF. Please download to view.</p>
-                            <a href="/experience/Ekaterina-Antipushina-FlowCV-Resume-20250907.pdf" class="download-btn" download>
+                            <a href="/documents/Ekaterina_Antipushina_CV.pdf" class="download-btn" download>
                                 Download CV (PDF)
                             </a>
                         </div>
