@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekaterina Antipushina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Clean Girl Pastel Palette */
+            --soft-pink: #FDE8E8;
+            --blush: #F8D7DA;
+            --sage-green: #E8F5E8;
+            --mint: #D4F1F4;
+            --lavender: #F0E6FF;
+            --cream: #FFF8F0;
+            --peach: #FFE8D6;
+            --sky-blue: #E3F2FD;
+            
+            /* Accent Colors */
+            --coral: #FF9B9B;
+            --sage-dark: #9FB8A3;
+            --mint-dark: #7AC3CC;
+            --lavender-dark: #C8A8E9;
+            
+            /* Neutrals */
+            --soft-white: #FEFEFE;
+            --warm-gray: #F5F4F2;
+            --text-gray: #6B6B6B;
+            --text-dark: #4A4A4A;
+            --border-light: #F0F0F0;
+            
+            /* Shadows */
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
+            --shadow-medium: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-large: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--soft-white) 0%, var(--warm-gray) 100%);
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Floating background elements */
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .bg-decoration::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--soft-pink) 0%, transparent 70%);
+            top: 10%;
+            left: 80%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .bg-decoration::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+            top: 60%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            background: var(--soft-white);
+            border-radius: 50px;
+            padding: 0.75rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+        }
+
+        .nav-menu li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--blush) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 15px;
+            background: var(--soft-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .mobile-menu-btn span {
+            width: 20px;
+            height: 2px;
+            background: var(--coral);
+            margin: 2px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Main content */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page {
+            display: none;
+            padding: 3rem 0;
+            animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home page with clean girl aesthetic */
+        .home-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .greeting {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            color: var(--coral);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .home-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .home-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin: 2rem 0 3rem 0;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--lavender-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--shadow-large);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-decoration {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--mint);
+            top: -10px;
+            right: 10px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .profile-decoration:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            background: var(--peach);
+            top: 30px;
+            right: -5px;
+        }
+
+        .profile-decoration:nth-child(3) {
+            width: 25px;
+            height: 25px;
+            background: var(--lavender);
+            bottom: 10px;
+            left: -10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--mint-dark) 100%);
+            transition: left 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .social-link:hover::before {
+            left: 0;
+        }
+
+        .social-link:hover svg {
+            fill: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-gray);
+            transition: fill 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section styles */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--mint-dark) 100%);
+            border-radius: 2px;
+        }
+
+        /* Cards with soft shadows */
+        .card {
+            background: var(--soft-white);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--lavender-dark) 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+        }
+
+        /* Bio section */
+        .bio-section {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--mint) 100%);
+            padding: 3rem;
+            border-radius: 30px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bio-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .bio-section::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Research grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background: var(--soft-white);
+            padding: 2rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--mint-dark) 100%);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .research-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .research-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .research-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-card li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .research-card li::before {
+            content: '✦';
+            color: var(--coral);
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline with organic feel */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--coral) 0%, var(--mint-dark) 50%, var(--lavender-dark) 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: var(--soft-white);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--mint-dark) 100%);
+            box-shadow: 0 0 0 4px var(--soft-white);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Handwritten annotations */
+        .handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: var(--coral);
+            transform: rotate(-2deg);
+            margin: 1rem 0;
+        }
+
+        /* Project cards with soft aesthetics */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--soft-white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--mint) 100%);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .project-period {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--peach) 100%);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .tech-tag:hover {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--mint-dark) 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Publication items */
+        .publication-item {
+            background: var(--soft-white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-left: 5px solid var(--coral);
+        }
+
+        .publication-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pub-note {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--lavender-dark) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--sky-blue) 100%);
+            padding: 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-card a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--coral);
+        }
+
+        /* News items */
+        .news-item {
+            background: var(--soft-white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--mint-dark);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .news-item:hover {
+            transform: translateX(6px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .news-date {
+            font-family: 'Caveat', cursive;
+            color: var(--coral);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+                justify-content: space-between;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--soft-white);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 2rem;
+                transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 0;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-menu li a {
+                padding: 1rem;
+                border-radius: 15px;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .home-content {
+                padding: 3rem 0;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Fade in animation for elements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral) 0%, var(--mint-dark) 50%, var(--lavender-dark) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.1s ease;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration"></div>
+    
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about-me')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('resume')" class="nav-link">Experience</a></li>
+                <li><a href="#" onclick="showPage('projects')" class="nav-link">Projects</a></li>
+                <li><a href="#" onclick="showPage('papers')" class="nav-link">Publications</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="home-content">
+                <div class="greeting">hello there! ✨</div>
+                <h1 class="home-title">I'm Ekaterina</h1>
+                <h2 class="home-subtitle">PhD student in Computational and Data Science, passionate about Medical AI and making technology more human</h2>
+                
+                <div class="profile-container">
+                    <div class="profile-image">EA</div>
+                    <div class="profile-decoration"></div>
+                    <div class="profile-decoration"></div>
+                    <div class="profile-decoration"></div>
+                </div>
+                
+                <p class="handwritten">from Moscow with love</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/katherine-antipushina/" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/utoprey" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:Ekaterina.Antipushina@skoltech.ru" class="social-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.81L12 10.09l9.554-6.269h.81c.904 0 1.636.732 1.636 1.636z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Page -->
+        <div id="about-me" class="page">
+            <div class="section">
+                <h1 class="section-title">About Me</h1>
+                <div class="bio-section">
+                    <div class="section-content">
+                        <p>Currently pursuing my PhD at Skoltech's Applied AI Center, where I explore the fascinating intersection of technology and human experience. My research focuses on making AI more intuitive and accessible, particularly in medical applications.</p>
+                        
+                        <p class="handwritten">fun fact: I believe the best AI solutions are the ones that feel most human!</p>
+                        
+                        <p>My journey began with biomedical engineering at Moscow Aviation Institute, where I developed a deep appreciation for how technology can enhance human wellbeing. This foundation led me to specialize in Data Science at Skoltech, focusing on interpretable machine learning for multimodal neuroimaging data.</p>
+                        
+                        <p>When I'm not diving deep into neural networks or analyzing brain connectivity patterns, you might find me sketching out ideas for more intuitive user interfaces or exploring Moscow's cozy cafés for inspiration.</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">What I'm Passionate About</h2>
+                <div class="research-grid">
+                    <div class="research-card fade-in">
+                        <h3>Medical AI & Neuroimaging</h3>
+                        <ul>
+                            <li>Making brain data accessible and understandable</li>
+                            <li>EEG and fMRI analysis with a human touch</li>
+                            <li>Neurofeedback systems that actually help people</li>
+                            <li>Bridging neuroscience and everyday applications</li>
+                        </ul>
+                        <p class="handwritten">because minds are beautiful! 🧠</p>
+                    </div>
+                    
+                    <div class="research-card fade-in">
+                        <h3>Foundation Models</h3>
+                        <ul>
+                            <li>Neural quantization that preserves meaning</li>
+                            <li>Multimodal learning that makes sense</li>
+                            <li>Cross-modal integration done right</li>
+                            <li>Self-supervised learning for real-world impact</li>
+                        </ul>
+                        <p class="handwritten">making complex simple ✨</p>
+                    </div>
+                    
+                    <div class="research-card fade-in">
+                        <h3>Generative AI</h3>
+                        <ul>
+                            <li>VAEs that capture human variability</li>
+                            <li>GANs for meaningful data synthesis</li>
+                            <li>Neural Optimal Transport applications</li>
+                            <li>Ethical medical data generation</li>
+                        </ul>
+                        <p class="handwritten">creating with purpose 🎨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Page -->
+        <div id="resume" class="page">
+            <div class="section">
+                <h1 class="section-title">My Journey</h1>
+                
+                <p class="handwritten">the path that led me here...</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">PhD in Computational and Data Science</div>
+                        <div class="exp-company">Skoltech, Applied AI Center</div>
+                        <div class="exp-duration">2024 - present</div>
+                        <div class="exp-description">
+                            Diving deep into medical AI applications, foundation models, and neural quantization. Working on making AI more accessible and human-centered, particularly in healthcare contexts.
+                        </div>
+                        <p class="handwritten">currently living here! 📚</p>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">ML Research Engineer</div>
+                        <div class="exp-company">Applied AI Center, Skoltech</div>
+                        <div class="exp-duration">June 2024 - June 2025</div>
+                        <div class="exp-description">
+                            Leading research in EEG foundation models and neural quantization. Developing innovative approaches for converting continuous neurological data into meaningful discrete representations.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">Master's in Data Science</div>
+                        <div class="exp-company">Skoltech, Biomedically-Informed AI Lab</div>
+                        <div class="exp-duration">2022 - 2024</div>
+                        <div class="exp-description">
+                            Thesis: "Interpretable machine learning models for multimodal neuroimaging and biomedical data using data fusion methods in schizophrenia diagnosis." Focused on making complex medical data understandable.
+                        </div>
+                        <p class="handwritten">where the magic started! ✨</p>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">Researcher</div>
+                        <div class="exp-company">Neuroimaging and Cognitive Neuroscience Lab</div>
+                        <div class="exp-duration">June - December 2024</div>
+                        <div class="exp-description">
+                            Designed Python-based architecture for real-time fMRI neurofeedback training. Built user-friendly FastAPI servers that make complex neuroscience accessible.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in">
+                        <div class="exp-title">Bachelor's in Biomedical Engineering</div>
+                        <div class="exp-company">Moscow Aviation Institute</div>
+                        <div class="exp-duration">2018 - 2022</div>
+                        <div class="exp-description">
+                            Built a strong foundation in engineering principles applied to healthcare technology. This is where I first fell in love with the intersection of technology and human wellbeing.
+                        </div>
+                        <p class="handwritten">the beginning! 🚀</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <div class="section">
+                <h1 class="section-title">Projects I'm Proud Of</h1>
+                
+                <p class="handwritten">some things I've been working on...</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-title">EEG Foundation Models</div>
+                            <div class="project-period">2024 - 2025</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                Creating quantization techniques that turn brain signals into meaningful digital tokens. It's like teaching computers to understand the language of neurons in a way that preserves all the important information.
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Transformers</span>
+                                <span class="tech-tag">Vector Quantization</span>
+                                <span class="tech-tag">Self-supervised Learning</span>
+                            </div>
+                            <p class="handwritten">decoding minds! 🧠💫</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-title">pyOpenNFT</div>
+                            <div class="project-period">2024</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                Reimagined real-time fMRI neurofeedback with a fully Python architecture. No more clunky MATLAB dependencies! Built user-friendly APIs that make neurofeedback accessible to researchers everywhere.
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Lab Streaming Layer</span>
+                            </div>
+                            <p class="handwritten">real-time brain magic! ⚡</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-title">Rest2Task</div>
+                            <div class="project-period">2023</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                Developed a generative framework that creates task-based fMRI data from resting scans. Achieved impressive results (MSE of 0.05 ± 0.01) while maintaining the biological authenticity of brain patterns.
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">VAE</span>
+                                <span class="tech-tag">Conditional GAN</span>
+                                <span class="tech-tag">Neural Optimal Transport</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <p class="handwritten">dreaming up brain states! 🌙</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-title">Geometric ML for Mental Health</div>
+                            <div class="project-period">2023</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-description">
+                                Used geometric features and topological data analysis to predict schizophrenia. It's like finding hidden patterns in the brain's geometry that can help with early diagnosis and better understanding.
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Topological Data Analysis</span>
+                                <span class="tech-tag">Persistent Homology</span>
+                                <span class="tech-tag">Manifold Learning</span>
+                                <span class="tech-tag">Graph Theory</span>
+                            </div>
+                            <p class="handwritten">finding hope in data 💜</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications Page -->
+        <div id="papers" class="page">
+            <div class="section">
+                <h1 class="section-title">Research & Publications</h1>
+                
+                <p class="handwritten">sharing discoveries with the world...</p>
+                
+                <div class="publication-item fade-in">
+                    <div class="pub-title">pyOpenNFT: an open-source Python framework for ML-based real-time fMRI and EEG-fMRI neurofeedback</div>
+                    <div class="pub-authors">Antipushina E., et al.</div>
+                    <div class="pub-venue">International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
+                    <div class="pub-note">A* Conference ✨</div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <div class="pub-title">CSTNet: A Generative Framework for EEG-to-ECoG Translation via Optimal Transport</div>
+                    <div class="pub-authors">Antipushina E., et al.</div>
+                    <div class="pub-venue">International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
+                    <div class="pub-note">A* Conference ✨</div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <div class="pub-title">Interpretable AI models for predicting distant metastasis development based on genetic data: kidney cancer example</div>
+                    <div class="pub-authors">Maria Boyko, Ekaterina Antipushina, et al.</div>
+                    <div class="pub-venue">BIO Web of Conferences, 2024</div>
+                    <div class="pub-note">Medical AI Application 💊</div>
+                </div>
+
+                <div class="publication-item fade-in">
+                    <div class="pub-title">Artificial Sensations Evoked by Transcutaneous Electrical Nerve Stimulation: Investigating the Parameters Space</div>
+                    <div class="pub-authors">Piliugin N., Knyshenko M., Sain A., Antipushina E.</div>
+                    <div class="pub-venue">IEEE Ural-Siberian Conference on Computational Technologies in Cognitive Science, Genomics and Biomedicine (CSGB), 2023</div>
+                    <div class="pub-note">IEEE Conference ⚡</div>
+                </div>
+
+                <p class="handwritten">more exciting papers coming soon! 📝</p>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="section">
+                <h1 class="section-title">Let's Connect!</h1>
+                
+                <div class="card" style="text-align: center; margin-bottom: 3rem;">
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">I love connecting with fellow researchers, collaborators, and anyone passionate about making AI more human-centered!</p>
+                    <p class="handwritten">coffee chats welcome! ☕</p>
+                    <p>Whether you want to discuss research ideas, explore collaboration opportunities, or just share thoughts about the future of AI in healthcare, I'd love to hear from you.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card fade-in">
+                        <h3>Email Me</h3>
+                        <a href="mailto:Ekaterina.Antipushina@skoltech.ru">Ekaterina.Antipushina@skoltech.ru</a>
+                        <p class="handwritten">best way to reach me! 📧</p>
+                    </div>
+
+                    <div class="contact-card fade-in">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/katherine-antipushina/" target="_blank">katherine-antipushina</a>
+                        <p class="handwritten">let's connect professionally! 💼</p>
+                    </div>
+
+                    <div class="contact-card fade-in">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/utoprey" target="_blank">utoprey</a>
+                        <p class="handwritten">code & collaborations! 💻</p>
+                    </div>
+
+                    <div class="contact-card fade-in">
+                        <h3>Phone</h3>
+                        <a href="tel:+79165741784">+7 916 574 1784</a>
+                        <p class="handwritten">for urgent research discussions! 📱</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <div class="card">
+                        <h2 style="color: var(--coral); margin-bottom: 1rem;">📍 Based in Moscow, Russia</h2>
+                        <p>Working from Skoltech's Applied AI Center</p>
+                        <p class="handwritten">always up for meeting fellow researchers in Moscow! 🇷🇺</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.remove('active');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.card, .project-card, .research-card, .contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
