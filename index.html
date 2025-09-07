@@ -466,6 +466,103 @@
             font-size: 0.9rem;
         }
 
+        /* Experience page styles */
+        .experience-nav {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .experience-nav-pills {
+            display: flex;
+            background: var(--soft-white);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            gap: 0.25rem;
+        }
+
+        .experience-nav-btn {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: var(--text-gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+
+        .experience-nav-btn.active,
+        .experience-nav-btn:hover {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--blush) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .experience-section {
+            display: none;
+        }
+
+        .experience-section.active {
+            display: block;
+        }
+
+        /* PDF viewer styles */
+        .pdf-container {
+            width: 100%;
+            height: 80vh;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            background: var(--soft-white);
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .pdf-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: var(--text-gray);
+            background: var(--warm-gray);
+        }
+
+        .pdf-fallback h3 {
+            color: var(--coral);
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--mint-dark) 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
         /* Research page styles */
         .research-nav {
             margin-bottom: 3rem;
@@ -957,6 +1054,10 @@
             .research-grid {
                 grid-template-columns: 1fr;
             }
+
+            .pdf-container {
+                height: 60vh;
+            }
         }
 
         /* Fade in animation for elements */
@@ -1091,57 +1192,115 @@
         <!-- Experience Page -->
         <div id="resume" class="page">
             <div class="section">
-                <h1 class="section-title">My Journey</h1>
+                <h1 class="section-title">Professional Journey</h1>
+                <p class="handwritten">explore my background...</p>
                 
-                <p class="handwritten">the path that led me here...</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item fade-in">
-                        <div class="exp-title">PhD in Computational and Data Science</div>
-                        <div class="exp-company">Skoltech, Applied AI Center</div>
-                        <div class="exp-duration">2024 - present</div>
-                        <div class="exp-description">
-                            Diving deep into medical AI applications, foundation models, and neural quantization. Working on making AI more accessible and human-centered, particularly in healthcare contexts.
-                        </div>
-                        <p class="handwritten">currently living here! 📚</p>
+                <div class="experience-nav">
+                    <div class="experience-nav-pills">
+                        <button class="experience-nav-btn active" onclick="showExperienceSection('about')">About me</button>
+                        <button class="experience-nav-btn" onclick="showExperienceSection('cv')">CV</button>
+                        <button class="experience-nav-btn" onclick="showExperienceSection('resume')">Resume</button>
                     </div>
+                </div>
 
-                    <div class="timeline-item fade-in">
-                        <div class="exp-title">ML Research Engineer</div>
-                        <div class="exp-company">Applied AI Center, Skoltech</div>
-                        <div class="exp-duration">June 2024 - June 2025</div>
-                        <div class="exp-description">
-                            Leading research in EEG foundation models and neural quantization. Developing innovative approaches for converting continuous neurological data into meaningful discrete representations.
+                <!-- About Me Section -->
+                <div id="experience-about" class="experience-section active">
+                    <h2 class="section-title">My Journey</h2>
+                    
+                    <p class="handwritten">the path that led me here...</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item fade-in">
+                            <div class="exp-title">PhD in Computational and Data Science</div>
+                            <div class="exp-company">Skoltech, Applied AI & Neurocenter</div>
+                            <div class="exp-duration">2024 - present</div>
+                            <div class="exp-description">
+                                Diving deep into MLOps, foundation models, and quantization. Working on multimodal data analysis for reliable prediction of localized neuronal activity in real-time.
+                            </div>
+                            <p class="handwritten">currently living here! 📚</p>
+                        </div>
+
+                        <div class="timeline-item fade-in">
+                            <div class="exp-title">ML Research Engineer</div>
+                            <div class="exp-company">BIMAI-lab, Skoltech</div>
+                            <div class="exp-duration">June 2024 - June 2025</div>
+                            <div class="exp-description">
+                                - Formulated and statistically tested hypotheses based on experimental conditions and biological processes<br>
+                                - Conducted EDA, feature selection, and clustering to identify trends, reduce dimensionality, and segment data by cell behavior and treatment responses<br>
+                                - Built and validated machine learning models using cross-validation within integrated statistical-ML pipelines
+                            </div>
+                        </div>
+
+                        <div class="timeline-item fade-in">
+                            <div class="exp-title">Master's in Medical AI</div>
+                            <div class="exp-company">Skoltech, Biomedically-Informed AI Lab</div>
+                            <div class="exp-duration">2022 - 2024</div>
+                            <div class="exp-description">
+                                Thesis: "Interpretable machine learning models for multimodal neuroimaging and biomedical data using data fusion methods in schizophrenia diagnosis." Developed data fusion techniques for schizophrenia diagnostic marker discovery, achieving F1 score of 0.87 (13% improvement over previous SOTA of 0.77).
+                            </div>
+                            <p class="handwritten">where the magic started! ✨</p>
+                        </div>
+
+                        <div class="timeline-item fade-in">
+                            <div class="exp-title">Research Intern</div>
+                            <div class="exp-company">Neuroimaging and Cognitive Neuroscience Lab</div>
+                            <div class="exp-duration">June - December 2024</div>
+                            <div class="exp-description">
+                                Designed Python-based architecture for real-time fMRI neurofeedback training. Built user-friendly FastAPI servers that make complex neuroscience accessible.
+                            </div>
+                        </div>
+
+                        <div class="timeline-item fade-in">
+                            <div class="exp-title">Bachelor's in Biomedical Engineering</div>
+                            <div class="exp-company">Moscow Aviation Institute</div>
+                            <div class="exp-duration">2018 - 2022</div>
+                            <div class="exp-description">
+                                Built a strong foundation in engineering principles applied to healthcare technology. This is where I first fell in love with the intersection of technology and human wellbeing.
+                            </div>
+                            <p class="handwritten">the beginning! 🚀</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="timeline-item fade-in">
-                        <div class="exp-title">Master's in Data Science</div>
-                        <div class="exp-company">Skoltech, Biomedically-Informed AI Lab</div>
-                        <div class="exp-duration">2022 - 2024</div>
-                        <div class="exp-description">
-                            Thesis: "Interpretable machine learning models for multimodal neuroimaging and biomedical data using data fusion methods in schizophrenia diagnosis." Focused on making complex medical data understandable.
+                <!-- CV Section -->
+                <div id="experience-cv" class="experience-section">
+                    <h2 class="section-title">Curriculum Vitae</h2>
+                    <p class="handwritten">comprehensive academic background...</p>
+                    
+                    <div class="pdf-container">
+                        <iframe 
+                            src="/documents/Ekaterina_Antipushina_CV.pdf" 
+                            class="pdf-viewer"
+                            title="Ekaterina Antipushina CV">
+                        </iframe>
+                        <div class="pdf-fallback" style="display: none;">
+                            <h3>CV Document</h3>
+                            <p>Unable to display PDF. Please download to view.</p>
+                            <a href="/documents/Ekaterina_Antipushina_CV.pdf" class="download-btn" download>
+                                Download CV (PDF)
+                            </a>
                         </div>
-                        <p class="handwritten">where the magic started! ✨</p>
                     </div>
+                </div>
 
-                    <div class="timeline-item fade-in">
-                        <div class="exp-title">Researcher</div>
-                        <div class="exp-company">Neuroimaging and Cognitive Neuroscience Lab</div>
-                        <div class="exp-duration">June - December 2024</div>
-                        <div class="exp-description">
-                            Designed Python-based architecture for real-time fMRI neurofeedback training. Built user-friendly FastAPI servers that make complex neuroscience accessible.
+                <!-- Resume Section -->
+                <div id="experience-resume" class="experience-section">
+                    <h2 class="section-title">Professional Resume</h2>
+                    <p class="handwritten">industry-focused summary...</p>
+                    
+                    <div class="pdf-container">
+                        <iframe 
+                            src="/documents/Ekaterina_Antipushina_Resume.pdf" 
+                            class="pdf-viewer"
+                            title="Ekaterina Antipushina Resume">
+                        </iframe>
+                        <div class="pdf-fallback" style="display: none;">
+                            <h3>Resume Document</h3>
+                            <p>Unable to display PDF. Please download to view.</p>
+                            <a href="/documents/Ekaterina_Antipushina_Resume.pdf" class="download-btn" download>
+                                Download Resume (PDF)
+                            </a>
                         </div>
-                    </div>
-
-                    <div class="timeline-item fade-in">
-                        <div class="exp-title">Bachelor's in Biomedical Engineering</div>
-                        <div class="exp-company">Moscow Aviation Institute</div>
-                        <div class="exp-duration">2018 - 2022</div>
-                        <div class="exp-description">
-                            Built a strong foundation in engineering principles applied to healthcare technology. This is where I first fell in love with the intersection of technology and human wellbeing.
-                        </div>
-                        <p class="handwritten">the beginning! 🚀</p>
                     </div>
                 </div>
             </div>
